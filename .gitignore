@@ -1,23 +1,57 @@
-# Compiled class file
-*.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+import java.util.Scanner;
+public class TrabalhoLaboratórioClínico { 
+	public static void retorno(){
+		System.out.println("Aperte <enter> para retornar ao menu");
+		Scanner entrada = new Scanner(System.in);
+		entrada.nextLine();
+	}
+	public static void linha(int x){
+		for(int i=0; i<=x; i++){
+			System.out.print("-");		
+		}	
+	}
+	
+	public static void titulo(String msg) {
+		linha(40);
+		System.out.print(msg);
+		linha(40);
+	}
+	
+	public static void menu(){
+		titulo("          MENU");		
+		System.out.println("Opção 1: Cadastrar dados do paciente");
+		System.out.println("Opção 2: Remover");
+		System.out.println("Opção 3: Imprimir");
+		System.out.println("Opção 4: Sair");
+		System.out.print("Escolha a opção: ");
+	}
+	
+	
+	public static void main(String []args){
+		Scanner entrada = new Scanner(System.in);
+		
+		Fila CPF = new Fila(0);
+		Fila Codigo = new Fila(0);
+		
+		
+		int opcao = 0;
+		while (opcao != 4){
+			
+			menu();
+			opcao = entrada.nextInt();
+			
+			switch(opcao){
+				case 1:
+					cadastro(CPF);
+					break;
+				case 2:
+					//remover()
+					break;
+				case 3:
+					//excluir()
+					break;
+			}
+			
+		}
+	}
+}
